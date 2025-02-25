@@ -1,4 +1,4 @@
-body{
+body {
     background-color: #f0f0f0;
     font-family: Arial, sans-serif;
     margin: 0;
@@ -7,11 +7,13 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
+    background-color: #2d3325;
+    background-image: url("https://www.transparenttextures.com/patterns/asfalt-light.png");
 }
 
 
-#container{
-    height: 650px;  
+#container {
+    height: 650px;
     width: 300px;
     display: flex;
     flex-direction: column;
@@ -19,16 +21,18 @@ body{
     align-items: center;
     /* border: 2px solid #ccc; */
     border-radius: 5px;
+    background-color: #2d3325;
+    background-image: url("https://www.transparenttextures.com/patterns/asfalt-light.png");
 }
 
 
-#naslov{
+#naslov {
     height: 50px;
     width: 300px;
     display: flex;
     justify-content: center;
     align-items: center;
-    font-family: 'Staatliches', sans-serif; 
+    font-family: 'Staatliches', sans-serif;
     color: #ff6b35;
     font-size: 30px;
 
@@ -36,27 +40,99 @@ body{
 
 
 
-#display{
+#display {
 
-    height: 550px;  
+    height: 550px;
     width: 300px;
     display: flex;
     /* flex-direction: column; */
     justify-content: center;
-    align-items: center;
+    align-items: top;
     /* border: 2px solid #ccc;
     border-radius: 5px; */
 
 }
 
+#ime-misije-mesto {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
 
-#navigation-bar{
+}
+
+#ime-misije-naslov {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Staatliches', sans-serif;
+    color: #ff6b35;
+    font-size: 25px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+
+}
+
+#ime-faze-mesto {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+
+}
+
+#ime-faze-naslov {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Staatliches', sans-serif;
+    color: #ff6b35;
+    font-size: 25px;
+    margin-bottom: 10px;
+
+}
+
+
+
+
+#napravi-fazu-div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* margin-bottom: 20px; */
+
+}
+
+
+#add-phase {
+    background-color: #ff6b35;
+    /* Match Create button background */
+    border: 2px solid #ff6b35;
+    border-radius: 0.9em;
+    /* Match Create button border radius */
+    cursor: pointer;
+    /* padding: 0.8em 1.2em 0.8em 1em; Match Create button padding */
+
+    font-size: 20px;
+    /* Match Create button font size */
+    height: 35px;
+    width: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #5c6b73;
+    font-family: 'Staatliches', sans-serif;
+    margin-bottom: 50px;
+}
+
+#navigation-bar {
     height: 50px;
     width: 300px;
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-direction: row; /* Ensure horizontal layout */
+    flex-direction: row;
+    /* Ensure horizontal layout */
 }
 
 
@@ -69,14 +145,20 @@ body{
 } */
 
 .nav-btn {
-    background-color: #ff6b35; /* Match Create button background */
-    border: 2px solid #ff6b35; /* Match Create button border */
-    border-radius: 0.9em; /* Match Create button border radius */
+    background-color: #ff6b35;
+    /* Match Create button background */
+    border: 2px solid #ff6b35;
+    /* Match Create button border */
+    border-radius: 0.9em;
+    /* Match Create button border radius */
     cursor: pointer;
-    padding: 0.8em 1.2em 0.8em 1em; /* Match Create button padding */
-    transition: all ease-in-out 0.2s; /* Match Create button transition */
-    font-size: 13px; /* Match Create button font size */
-    height:30px;
+    padding: 0.8em 1.2em 0.8em 1em;
+    /* Match Create button padding */
+    transition: all ease-in-out 0.2s;
+    /* Match Create button transition */
+    font-size: 13px;
+    /* Match Create button font size */
+    height: 30px;
     width: 80px;
     display: flex;
     justify-content: center;
@@ -87,5 +169,6 @@ body{
 .nav-btn svg {
     width: 24px;
     height: 24px;
-    fill: #5c6b73; /* Match Create button text color */
+    fill: #5c6b73;
+    /* Match Create button text color */
 }

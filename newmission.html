@@ -14,45 +14,23 @@
 
         <div id="display">
             <form id="mission-form">
-                <label for="mission-name">Mission Name:</label>
-                <input type="text" id="mission-name" name="mission-name" required>
-                
-                <div id="phases">
-                    <div class="phase">
-                        <h3>Alpha</h3>
-                        <div class="tasks">
-                            <label for="alpha-task-1">Task 1:</label>
-                            <input type="text" id="alpha-task-1" name="alpha-task-1" required>
-                        </div>
-                        <button type="button" onclick="addTask('alpha')">Add Task</button>
-                    </div>
-                    <div class="phase">
-                        <h3>Bravo</h3>
-                        <div class="tasks">
-                            <label for="bravo-task-1">Task 1:</label>
-                            <input type="text" id="bravo-task-1" name="bravo-task-1" required>
-                        </div>
-                        <button type="button" onclick="addTask('bravo')">Add Task</button>
-                    </div>
-                    <div class="phase">
-                        <h3>Charlie</h3>
-                        <div class="tasks">
-                            <label for="charlie-task-1">Task 1:</label>
-                            <input type="text" id="charlie-task-1" name="charlie-task-1" required>
-                        </div>
-                        <button type="button" onclick="addTask('charlie')">Add Task</button>
-                    </div>
-                    <div class="phase">
-                        <h3>Delta</h3>
-                        <div class="tasks">
-                            <label for="delta-task-1">Task 1:</label>
-                            <input type="text" id="delta-task-1" name="delta-task-1" required>
-                        </div>
-                        <button type="button" onclick="addTask('delta')">Add Task</button>
-                    </div>
+                <div id="ime-misije-naslov">
+                    <label for="mission-name">Mission Name:</label>
                 </div>
+                <div id="ime-misije-mesto">
+                    <input type="text" id="mission-name" name="mission-name" required>
+                </div>
+               
+                <!-- <div id="ime-faze-naslov">
+                    <label for="phases-name">PHASE NAME:</label>
+                </div>
+                <div id="ime-faze-mesto">
+                    <input type="text" id="phases-name" name="phases-name" required>
+                </div>
+                 -->
+              <div id="napravi-fazu-div"><button id="add-phase">ADD PHASE</button></div>
                 
-                <button type="submit">Create Mission</button>
+                <!-- <button type="submit">Create Mission</button> -->
             </form>
         </div>
 
