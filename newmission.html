@@ -28,9 +28,11 @@
                     <input type="text" id="phases-name" name="phases-name" required>
                 </div>
                  -->
-              <div id="napravi-fazu-div"><button id="add-phase">ADD PHASE</button></div>
+              <div id="napravi-fazu-div"><button id="add-phase" type="button">ADD PHASE</button></div>
                 
-                <!-- <button type="submit">Create Mission</button> -->
+               <div id="submit-div">
+                <button type="submit" id="submit-btn">Create Mission</button>
+               </div> 
             </form>
         </div>
 
@@ -76,6 +78,10 @@
             taskContainer.appendChild(newTaskInput);
             tasksDiv.appendChild(taskContainer);
         }
+
+        document.getElementById('add-phase').addEventListener('click', function() {
+            window.location.href = 'addphase.html';
+        });
 
         document.getElementById('mission-form').addEventListener('submit', function(event) {
             event.preventDefault();

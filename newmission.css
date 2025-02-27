@@ -21,7 +21,7 @@ body {
     align-items: center;
     /* border: 2px solid #ccc; */
     border-radius: 5px;
-    background-color: rgb(56, 64, 45);
+    background-color:#2d3325;
     background-image: url("https://www.transparenttextures.com/patterns/asfalt-light.png");
 }
 
@@ -73,7 +73,7 @@ body {
 
 }
 
-#ime-faze-mesto {
+/* #ime-faze-mesto {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -90,7 +90,7 @@ body {
     font-size: 25px;
     margin-bottom: 10px;
 
-}
+} */
 
 
 
@@ -127,6 +127,34 @@ body {
 }
 
 #add-phase {
+    background-color: #ff6b35;
+    /* Match Create button background */
+    border: 2px solid #ff6b35;
+    border-radius: 0.9em;
+    /* Match Create button border radius */
+    cursor: pointer;
+    /* padding: 0.8em 1.2em 0.8em 1em; Match Create button padding */
+
+    font-size: 20px;
+    /* Match Create button font size */
+    height: 35px;
+    width: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #5c6b73;
+    font-family: 'Staatliches', sans-serif;
+    margin-bottom: 50px;
+}
+
+#submit-div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* margin-top: 20px; */
+}
+
+#submit-btn{
     background-color: #ff6b35;
     /* Match Create button background */
     border: 2px solid #ff6b35;
