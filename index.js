@@ -5,6 +5,9 @@ document.addEventListener('DOMContentLoaded', function() {
     const addPhaseBtn = document.getElementById('add-phase');
     const generateNameBtn = document.getElementById('generate-name-btn');
     const phaseNameInput = document.getElementById('phase-name');
+    const addObjectivBtn = document.getElementById('add-objectiv-btn');
+    const objectivNameInput = document.getElementById('objectiv-name');
+    const objectivNewDiv = document.getElementById('objectiv-new');
 
     const nazivi = [
         "Alpha", "Bravo", "Charlie", "Delta", "Echo", "Foxtrot", "Golf", "Hotel", "India", "Juliet",
@@ -52,6 +55,35 @@ document.addEventListener('DOMContentLoaded', function() {
             event.preventDefault();
             const randomIndex = Math.floor(Math.random() * nazivi.length);
             phaseNameInput.value = nazivi[randomIndex];
+        });
+    }
+
+    if (addObjectivBtn) {
+        addObjectivBtn.addEventListener('click', function() {
+            const objectivValue = objectivNameInput.value;
+            if (objectivValue) {
+                const newObjectiv = document.createElement('div');
+                newObjectiv.textContent = objectivValue;
+                newObjectiv.className = 'objective-item';
+                newObjectiv.style.display = 'flex';
+                newObjectiv.style.justifyContent = 'center';
+                newObjectiv.style.alignItems = 'center';
+                newObjectiv.style.fontFamily = "'Staatliches', sans-serif";
+                newObjectiv.style.color = '#ff6b35';
+                newObjectiv.style.fontSize = '25px';
+                newObjectiv.style.marginBottom = '10px';
+                newObjectiv.style.backgroundColor = '#2d3325';
+                newObjectiv.style.boxShadow = '0 0 .4vw rgba(0,0,0,0.5), 0 0 0 .15vw transparent';
+                newObjectiv.style.borderRadius = '20px';
+                newObjectiv.style.height = '35px';
+                objectivNewDiv.appendChild(newObjectiv);
+                objectivNewDiv.style.display = 'block';
+                objectivNameInput.value = '';
+
+                // Increase the height of the display div
+                const displayDiv = document.getElementById('display');
+                displayDiv.style.height = displayDiv.scrollHeight + 'px';
+            }
         });
     }
 });
