@@ -250,26 +250,39 @@ body {
 
 
 #ime-faze-mesto {
-    margin-top: 15px;
-    min-height: 50px; /* Minimum prostora za faze */
+    /* margin-top: 15px; */
+    /* min-height: 50px; */
 }
 
 
 #napravi-fazu-div {
-    position: sticky;
-    bottom: 20px;
-    z-index: 10;
-    /* background: #1a1e16;  */
-    padding-top: 20px;
+   
 }
 
 #ime-faze {
-    max-height: 300px; /* Maksimalna visina pre skrolovanja */
-    overflow-y: auto;
+
+
     margin-bottom: 15px;
+
+    height: auto; /* Adjust height to auto */
+    width: 100%; /* Ensure it takes full width */  /*ovo je vazno za responsivnost*/
 }
 
 phase-item {
-    margin: 8px 0;
-    padding: 8px 15px;
+    /* margin: 8px 0; */
+    /* padding: 8px 15px; */
+}
+
+.delete-btn{
+    background-color: #ff6b35;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    cursor: pointer;
+    /* padding: 5px 10px; */
+    font-size: 15px;
+    font-family: 'Staatliches', sans-serif;
+    margin-right: 20px;
+    margin-left: 30px;
+    
 }
