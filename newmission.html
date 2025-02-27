@@ -109,11 +109,20 @@
                         // Remove phase from localStorage
                         const updatedPhases = phases.filter(p => p !== phaseName);
                         localStorage.setItem('phases', JSON.stringify(updatedPhases));
+                        // Adjust the height of the ime-faze div
+                        imeFazeDiv.style.height = imeFazeDiv.scrollHeight + 'px';
                     });
 
                     phaseDiv.appendChild(deleteBtn);
                     imeFazeDiv.appendChild(phaseDiv);
                 });
+
+                // Adjust the height of the ime-faze div
+                imeFazeDiv.style.height = imeFazeDiv.scrollHeight + 'px';
+
+                // Move the add-phase button down
+                const addPhaseDiv = document.getElementById('napravi-fazu-div');
+                imeFazeDiv.appendChild(addPhaseDiv);
             }
         });
 
