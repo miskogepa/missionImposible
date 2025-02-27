@@ -81,7 +81,9 @@
         document.getElementById('create-phase-btn').addEventListener('click', function(event) {
             event.preventDefault();
             const phaseName = document.getElementById('phase-name').value;
-            localStorage.setItem('phaseName', phaseName);
+            let phases = JSON.parse(localStorage.getItem('phases')) || [];
+            phases.push(phaseName);
+            localStorage.setItem('phases', JSON.stringify(phases));
             window.location.href = 'newmission.html';
         });
     </script>

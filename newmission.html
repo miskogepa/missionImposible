@@ -22,7 +22,7 @@
                 </div>
 
                 <div id="ime-faze-mesto">
-                    <div id="ime-faze"></div>
+                    <div id="ime-faze" style="display: none;"></div>
                 </div>
                
                 <!-- <div id="ime-faze-naslov">
@@ -95,11 +95,30 @@
         });
 
         document.addEventListener('DOMContentLoaded', function() {
-            const phaseName = localStorage.getItem('phaseName');
-            if (phaseName) {
-                const phaseDiv = document.createElement('div');
-                phaseDiv.textContent = phaseName;
-                document.getElementById('ime-faze').appendChild(phaseDiv);
+            const phases = JSON.parse(localStorage.getItem('phases')) || [];
+            const imeFazeDiv = document.getElementById('ime-faze');
+            if (phases.length > 0) {
+                imeFazeDiv.style.display = 'block';
+                phases.forEach(phaseName => {
+                    const phaseDiv = document.createElement('div');
+                    phaseDiv.textContent = phaseName;
+                    phaseDiv.className = 'phase-item';
+                    phaseDiv.style.display = 'flex';
+                    phaseDiv.style.justifyContent = 'space-between';
+                    phaseDiv.style.alignItems = 'center';
+                    phaseDiv.style.fontFamily = "'Staatliches', sans-serif";
+                    phaseDiv.style.color = '#ff6b35';
+                    phaseDiv.style.fontSize = '15px';
+                    phaseDiv.style.marginBottom = '10px';
+                    phaseDiv.style.backgroundColor = '#2d3325';
+                    phaseDiv.style.borderRadius = '20px';
+                    phaseDiv.style.height = '35px';
+                    phaseDiv.style.marginLeft = '30px';
+                    phaseDiv.style.marginRight = '10px';
+                    imeFazeDiv.appendChild(phaseDiv);
+                });
+            } else {
+                imeFazeDiv.style.display = 'none';
             }
         });
     </script>
