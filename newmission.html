@@ -67,59 +67,58 @@
         document.getElementById('mission-form').addEventListener('submit', function(event) {
             event.preventDefault();
             const missionName = document.getElementById('mission-name').value;
-            localStorage.setItem('missionName', missionName);
+            let missions = JSON.parse(localStorage.getItem('missions')) || [];
+            missions.push(missionName);
+            localStorage.setItem('missions', JSON.stringify(missions));
             window.location.href = 'mission.html';
         });
-        
 
         document.addEventListener('DOMContentLoaded', function() {
-    const phases = JSON.parse(localStorage.getItem('phases')) || [];
-    const imeFazeDiv = document.getElementById('ime-faze');
-    const formDiv = document.getElementById('mission-form');
+            const phases = JSON.parse(localStorage.getItem('phases')) || [];
+            const imeFazeDiv = document.getElementById('ime-faze');
+            const formDiv = document.getElementById('mission-form');
 
-    function refreshPhases() {
-        imeFazeDiv.innerHTML = '';
-        
-        if (phases.length > 0) {
-            imeFazeDiv.style.display = 'block';
-            phases.forEach((phaseName, index) => {
-                const phaseDiv = document.createElement('div');
-                phaseDiv.className = 'phase-item';
-                phaseDiv.innerHTML = `
-                    <span>${phaseName}</span>
-                    <button class="delete-btn">Delete</button>
-                `;
+            function refreshPhases() {
+                imeFazeDiv.innerHTML = '';
+                
+                if (phases.length > 0) {
+                    imeFazeDiv.style.display = 'block';
+                    phases.forEach((phaseName, index) => {
+                        const phaseDiv = document.createElement('div');
+                        phaseDiv.className = 'phase-item';
+                        phaseDiv.innerHTML = `
+                            <span>${phaseName}</span>
+                            <button class="delete-btn">Delete</button>
+                        `;
 
-                // Stilovi za phaseDiv
-                phaseDiv.style.cssText = `
-                    display: flex;
-                    justify-content: space-between;
-                    align-items: center;
-                    margin: 10px 0;
-                    padding: 8px 15px;
-                    background: #2d3325;
-                    border-radius: 20px;
-                    color: #ff6b35;
-                `;
+                        // Stilovi za phaseDiv
+                        phaseDiv.style.cssText = `
+                            display: flex;
+                            justify-content: space-between;
+                            align-items: center;
+                            margin: 10px 0;
+                            padding: 8px 15px;
+                            background: #2d3325;
+                            border-radius: 20px;
+                            color: #ff6b35;
+                        `;
 
-                // Delete dugme funkcionalnost
-                phaseDiv.querySelector('.delete-btn').addEventListener('click', function() {
-                    phases.splice(index, 1);
-                    localStorage.setItem('phases', JSON.stringify(phases));
-                    refreshPhases();
-                });
+                        // Delete dugme funkcionalnost
+                        phaseDiv.querySelector('.delete-btn').addEventListener('click', function() {
+                            phases.splice(index, 1);
+                            localStorage.setItem('phases', JSON.stringify(phases));
+                            refreshPhases();
+                        });
 
-                imeFazeDiv.appendChild(phaseDiv);
-            });
-        } else {
-            imeFazeDiv.style.display = 'none';
-        }
-    }
+                        imeFazeDiv.appendChild(phaseDiv);
+                    });
+                } else {
+                    imeFazeDiv.style.display = 'none';
+                }
+            }
 
-    refreshPhases();
-});
-
-       
+            refreshPhases();
+        });
     </script>
 </body>
 </html>

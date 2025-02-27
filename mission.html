@@ -13,7 +13,11 @@
     <div id="container">
         <div id="naslov">MY MISSIONS</div>
 
-        <div id="display"></div>
+        <div id="display" style="flex-direction: column;">
+            <div id="ime-misije-mesto">
+                <div id="ime-misije" style="display: none;"></div>
+            </div>
+        </div>
 
         <div id="new-mission-btn-place">
             <button id="new-mission-btn">
@@ -61,17 +65,18 @@
 
 
     <script src="index.js"></script>
-    <!-- <script>
+    <script>
         document.addEventListener('DOMContentLoaded', function() {
-            const missionName = localStorage.getItem('missionName');
-            if (missionName) {
-                const displayDiv = document.getElementById('display');
-                const missionTitle = document.createElement('h1');
-                missionTitle.textContent = missionName;
-                displayDiv.appendChild(missionTitle);
-            }
+            const missions = JSON.parse(localStorage.getItem('missions')) || [];
+            const displayDiv = document.getElementById('display');
+            missions.forEach(missionName => {
+                const missionDiv = document.createElement('div');
+                missionDiv.textContent = missionName;
+                missionDiv.className = 'mission-item';
+                displayDiv.appendChild(missionDiv);
+            });
         });
-    </script> -->
+    </script>
   
 </body>
 
