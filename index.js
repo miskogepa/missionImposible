@@ -70,13 +70,14 @@ document.addEventListener('DOMContentLoaded', function() {
                 newObjectiv.style.alignItems = 'center';
                 newObjectiv.style.fontFamily = "'Staatliches', sans-serif";
                 newObjectiv.style.color = '#ff6b35';
-                newObjectiv.style.fontSize = '25px';
+                newObjectiv.style.fontSize = '15px';
                 newObjectiv.style.marginBottom = '10px';
                 newObjectiv.style.backgroundColor = '#2d3325';
                 // newObjectiv.style.boxShadow = '0 0 .4vw rgba(0,0,0,0.5), 0 0 0 .15vw transparent';
                 newObjectiv.style.borderRadius = '20px';
                 newObjectiv.style.height = '35px';
                 newObjectiv.style.marginLeft = '30px'; // Add margin-left
+                newObjectiv.style.marginRight = '10px'; 
 
                 // Create delete button
                 const deleteBtn = document.createElement('button');
