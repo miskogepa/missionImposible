@@ -12,5 +12,9 @@ document.getElementById('add-objectiv-btn').addEventListener('click', function()
         // Increase the height of the display div
         const displayDiv = document.getElementById('display');
         displayDiv.style.height = displayDiv.scrollHeight + 'px';
+
+        // Adjust the position of the add-objectiv-btn
+        const addObjectivBtn = document.getElementById('add-objectiv-btn');
+        addObjectivBtn.style.marginTop = '10px';
     }
 });
