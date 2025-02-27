@@ -65,24 +65,6 @@
     <script src="index.js"></script>
     <script src="newmission.js"></script>
     <script>
-        function addTask(phase) {
-            const phaseDiv = Array.from(document.querySelectorAll('.phase')).find(div => div.querySelector('h3').textContent === phase.charAt(0).toUpperCase() + phase.slice(1));
-            const tasksDiv = phaseDiv.querySelector('.tasks');
-            const taskCount = tasksDiv.querySelectorAll('input').length + 1;
-            const newTaskLabel = document.createElement('label');
-            newTaskLabel.setAttribute('for', `${phase}-task-${taskCount}`);
-            newTaskLabel.textContent = `Task ${taskCount}:`;
-            const newTaskInput = document.createElement('input');
-            newTaskInput.setAttribute('type', 'text');
-            newTaskInput.setAttribute('id', `${phase}-task-${taskCount}`);
-            newTaskInput.setAttribute('name', `${phase}-task-${taskCount}`);
-            newTaskInput.required = true;
-            const taskContainer = document.createElement('div');
-            taskContainer.appendChild(newTaskLabel);
-            taskContainer.appendChild(newTaskInput);
-            tasksDiv.appendChild(taskContainer);
-        }
-
         document.getElementById('add-phase').addEventListener('click', function() {
             window.location.href = 'addphase.html';
         });
@@ -132,6 +114,49 @@
                 localStorage.removeItem('phases'); // Clear phases from local storage
             }
         });
+
+        const createPhase = document.getElementById('create-phase-btn');
+        if (createPhase) {
+            createPhase.addEventListener('click', function() {
+                const objectivPhase = document.getElementById('phase-name').value;
+                if (objectivPhase) {
+                    const newObjectiv = document.createElement('div');
+                    newObjectiv.textContent = objectivPhase;
+                    newObjectiv.className = 'objective-item';
+                    newObjectiv.style.display = 'flex';
+                    newObjectiv.style.justifyContent = 'space-between';
+                    newObjectiv.style.alignItems = 'center';
+                    newObjectiv.style.fontFamily = "'Staatliches', sans-serif";
+                    newObjectiv.style.color = '#ff6b35';
+                    newObjectiv.style.fontSize = '15px';
+                    newObjectiv.style.marginBottom = '10px';
+                    newObjectiv.style.backgroundColor = '#2d3325';
+                    newObjectiv.style.borderRadius = '20px';
+                    newObjectiv.style.height = '35px';
+                    newObjectiv.style.marginLeft = '30px';
+                    newObjectiv.style.marginRight = '10px';
+
+                    // Create delete button
+                    const deleteBtn = document.createElement('button');
+                    deleteBtn.textContent = 'Delete';
+                    deleteBtn.className = 'delete-btn';
+                    deleteBtn.addEventListener('click', function() {
+                        newObjectiv.remove();
+                    });
+
+                    newObjectiv.appendChild(deleteBtn);
+
+                    const objectivNewDiv = document.getElementById('ime-faze');
+                    objectivNewDiv.appendChild(newObjectiv);
+                    objectivNewDiv.style.display = 'block';
+                    document.getElementById('phase-name').value = '';
+
+                    // Increase the height of the display div
+                    const displayDiv = document.getElementById('display');
+                    displayDiv.style.height = displayDiv.scrollHeight + 'px';
+                }
+            });
+        }
     </script>
 </body>
 </html>

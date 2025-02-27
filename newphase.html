@@ -86,6 +86,46 @@
             localStorage.setItem('phases', JSON.stringify(phases));
             window.location.href = 'newmission.html';
         });
+
+        document.getElementById('add-objectiv-btn').addEventListener('click', function() {
+            const objectivValue = document.getElementById('objectiv-name').value;
+            if (objectivValue) {
+                const newObjectiv = document.createElement('div');
+                newObjectiv.textContent = objectivValue;
+                newObjectiv.className = 'objective-item';
+                newObjectiv.style.display = 'flex';
+                newObjectiv.style.justifyContent = 'space-between';
+                newObjectiv.style.alignItems = 'center';
+                newObjectiv.style.fontFamily = "'Staatliches', sans-serif";
+                newObjectiv.style.color = '#ff6b35';
+                newObjectiv.style.fontSize = '15px';
+                newObjectiv.style.marginBottom = '10px';
+                newObjectiv.style.backgroundColor = '#2d3325';
+                newObjectiv.style.borderRadius = '20px';
+                newObjectiv.style.height = '35px';
+                newObjectiv.style.marginLeft = '30px';
+                newObjectiv.style.marginRight = '10px';
+
+                // Create delete button
+                const deleteBtn = document.createElement('button');
+                deleteBtn.textContent = 'Delete';
+                deleteBtn.className = 'delete-btn';
+                deleteBtn.addEventListener('click', function() {
+                    newObjectiv.remove();
+                });
+
+                newObjectiv.appendChild(deleteBtn);
+
+                const objectivNewDiv = document.getElementById('objectiv-new');
+                objectivNewDiv.appendChild(newObjectiv);
+                objectivNewDiv.style.display = 'block';
+                document.getElementById('objectiv-name').value = '';
+
+                // Increase the height of the display div
+                const displayDiv = document.getElementById('display');
+                displayDiv.style.height = displayDiv.scrollHeight + 'px';
+            }
+        });
     </script>
 </body>
 
