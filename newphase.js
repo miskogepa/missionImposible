@@ -4,6 +4,7 @@ document.getElementById('add-objectiv-btn').addEventListener('click', function()
         const newObjective = document.createElement('div');
         newObjective.textContent = objectiveName;
         newObjective.className = 'objective-item';
+        newObjective.style.marginLeft = '30px'; // Add margin-left
 
         // Create delete button
         const deleteBtn = document.createElement('button');
