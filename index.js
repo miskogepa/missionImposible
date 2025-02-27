@@ -66,7 +66,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 newObjectiv.textContent = objectivValue;
                 newObjectiv.className = 'objective-item';
                 newObjectiv.style.display = 'flex';
-                newObjectiv.style.justifyContent = 'center';
+                newObjectiv.style.justifyContent = 'space-between';
                 newObjectiv.style.alignItems = 'center';
                 newObjectiv.style.fontFamily = "'Staatliches', sans-serif";
                 newObjectiv.style.color = '#ff6b35';
@@ -76,6 +76,17 @@ document.addEventListener('DOMContentLoaded', function() {
                 newObjectiv.style.boxShadow = '0 0 .4vw rgba(0,0,0,0.5), 0 0 0 .15vw transparent';
                 newObjectiv.style.borderRadius = '20px';
                 newObjectiv.style.height = '35px';
+
+                // Create delete button
+                const deleteBtn = document.createElement('button');
+                deleteBtn.textContent = 'Delete';
+                deleteBtn.className = 'delete-btn';
+                deleteBtn.addEventListener('click', function() {
+                    newObjectiv.remove();
+                });
+
+                newObjectiv.appendChild(deleteBtn);
+
                 objectivNewDiv.appendChild(newObjectiv);
                 objectivNewDiv.style.display = 'block';
                 objectivNameInput.value = '';

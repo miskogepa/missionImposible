@@ -4,6 +4,17 @@ document.getElementById('add-objectiv-btn').addEventListener('click', function()
         const newObjective = document.createElement('div');
         newObjective.textContent = objectiveName;
         newObjective.className = 'objective-item';
+
+        // Create delete button
+        const deleteBtn = document.createElement('button');
+        deleteBtn.textContent = 'Delete';
+        deleteBtn.className = 'delete-btn';
+        deleteBtn.addEventListener('click', function() {
+            newObjective.remove();
+        });
+
+        newObjective.appendChild(deleteBtn);
+
         const objectivNewDiv = document.getElementById('objectiv-new');
         objectivNewDiv.appendChild(newObjective);
         objectivNewDiv.style.display = 'block';
