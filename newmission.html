@@ -25,25 +25,20 @@
                     <div id="ime-faze" style="display: none;"></div>
                 </div>
                
-                <!-- <div id="ime-faze-naslov">
-                    <label for="phases-name">PHASE NAME:</label>
+                <div id="napravi-fazu-div" style="margin-top: 20px;">
+                    <button id="add-phase" type="button">ADD PHASE</button>
                 </div>
-                <div id="ime-faze-mesto">
-                    <input type="text" id="phases-name" name="phases-name" required>
-                </div>
-                 -->
-              <div id="napravi-fazu-div"><button id="add-phase" type="button">ADD PHASE</button></div>
                 
-               <div id="submit-div">
-                <button type="submit" id="submit-btn">Create Mission</button>
-               </div> 
+                <div id="submit-div" style="margin-top: 20px;">
+                    <button type="submit" id="submit-btn">Create Mission</button>
+                </div> 
             </form>
         </div>
 
         <div id="navigation-bar">
             <button class="nav-btn active" id="home-btn">
                 <svg viewBox="0 0 24 24">
-                    <path d="M12 2L2 12h3v8h6v-6h2v6h6v-8h3L12 2zm0 5.84l5 4.9V18h-2v-6H9v6H7v-7.26l5-4.9z" />
+                    <path d="M12 2L2 12h3v8h6v-6H9v6H7v-7.26l5-4.9z" />
                 </svg>
             </button>
             <button class="nav-btn" id="mission-btn">
@@ -75,99 +70,57 @@
             localStorage.setItem('missionName', missionName);
             window.location.href = 'mission.html';
         });
+        
+
 
         document.addEventListener('DOMContentLoaded', function() {
-            const phases = JSON.parse(localStorage.getItem('phases')) || [];
-            const imeFazeDiv = document.getElementById('ime-faze');
-            imeFazeDiv.style.display = 'none'; // Ensure it's hidden initially
-            imeFazeDiv.innerHTML = ''; // Clear any existing content
-            if (phases.length > 0) {
-                imeFazeDiv.style.display = 'block';
-                phases.forEach(phaseName => {
-                    const phaseDiv = document.createElement('div');
-                    phaseDiv.textContent = phaseName;
-                    phaseDiv.className = 'phase-item';
-                    phaseDiv.style.display = 'flex';
-                    phaseDiv.style.justifyContent = 'space-between';
-                    phaseDiv.style.alignItems = 'center';
-                    phaseDiv.style.fontFamily = "'Staatliches', sans-serif";
-                    phaseDiv.style.color = '#ff6b35';
-                    phaseDiv.style.fontSize = '15px';
-                    phaseDiv.style.marginBottom = '10px';
-                    phaseDiv.style.backgroundColor = '#2d3325';
-                    phaseDiv.style.borderRadius = '20px';
-                    phaseDiv.style.height = '35px';
-                    phaseDiv.style.marginLeft = '30px';
-                    phaseDiv.style.marginRight = '10px';
+    const phases = JSON.parse(localStorage.getItem('phases')) || [];
+    const imeFazeDiv = document.getElementById('ime-faze');
+    const formDiv = document.getElementById('mission-form');
 
-                    // Create delete button
-                    const deleteBtn = document.createElement('button');
-                    deleteBtn.textContent = 'Delete';
-                    deleteBtn.className = 'delete-btn';
-                    deleteBtn.addEventListener('click', function() {
-                        phaseDiv.remove();
-                        // Remove phase from localStorage
-                        const updatedPhases = phases.filter(p => p !== phaseName);
-                        localStorage.setItem('phases', JSON.stringify(updatedPhases));
-                        // Adjust the height of the ime-faze div
-                        imeFazeDiv.style.height = imeFazeDiv.scrollHeight + 'px';
-                    });
+    function refreshPhases() {
+        imeFazeDiv.innerHTML = '';
+        
+        if (phases.length > 0) {
+            imeFazeDiv.style.display = 'block';
+            phases.forEach((phaseName, index) => {
+                const phaseDiv = document.createElement('div');
+                phaseDiv.className = 'phase-item';
+                phaseDiv.innerHTML = `
+                    <span>${phaseName}</span>
+                    <button class="delete-btn">Delete</button>
+                `;
 
-                    phaseDiv.appendChild(deleteBtn);
-                    imeFazeDiv.appendChild(phaseDiv);
+                // Stilovi za phaseDiv
+                phaseDiv.style.cssText = `
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    margin: 10px 0;
+                    padding: 8px 15px;
+                    background: #2d3325;
+                    border-radius: 20px;
+                    color: #ff6b35;
+                `;
+
+                // Delete dugme funkcionalnost
+                phaseDiv.querySelector('.delete-btn').addEventListener('click', function() {
+                    phases.splice(index, 1);
+                    localStorage.setItem('phases', JSON.stringify(phases));
+                    refreshPhases();
                 });
 
-                // Adjust the height of the ime-faze div
-                imeFazeDiv.style.height = imeFazeDiv.scrollHeight + 'px';
-
-                // Move the add-phase button down
-                const addPhaseDiv = document.getElementById('napravi-fazu-div');
-                imeFazeDiv.appendChild(addPhaseDiv);
-            }
-        });
-
-        const createPhase = document.getElementById('create-phase-btn');
-        if (createPhase) {
-            createPhase.addEventListener('click', function() {
-                const objectivPhase = document.getElementById('phase-name').value;
-                if (objectivPhase) {
-                    const newObjectiv = document.createElement('div');
-                    newObjectiv.textContent = objectivPhase;
-                    newObjectiv.className = 'objective-item';
-                    newObjectiv.style.display = 'flex';
-                    newObjectiv.style.justifyContent = 'space-between';
-                    newObjectiv.style.alignItems = 'center';
-                    newObjectiv.style.fontFamily = "'Staatliches', sans-serif";
-                    newObjectiv.style.color = '#ff6b35';
-                    newObjectiv.style.fontSize = '15px';
-                    newObjectiv.style.marginBottom = '10px';
-                    newObjectiv.style.backgroundColor = '#2d3325';
-                    newObjectiv.style.borderRadius = '20px';
-                    newObjectiv.style.height = '35px';
-                    newObjectiv.style.marginLeft = '30px';
-                    newObjectiv.style.marginRight = '10px';
-
-                    // Create delete button
-                    const deleteBtn = document.createElement('button');
-                    deleteBtn.textContent = 'Delete';
-                    deleteBtn.className = 'delete-btn';
-                    deleteBtn.addEventListener('click', function() {
-                        newObjectiv.remove();
-                    });
-
-                    newObjectiv.appendChild(deleteBtn);
-
-                    const objectivNewDiv = document.getElementById('ime-faze');
-                    objectivNewDiv.appendChild(newObjectiv);
-                    objectivNewDiv.style.display = 'block';
-                    document.getElementById('phase-name').value = '';
-
-                    // Increase the height of the display div
-                    const displayDiv = document.getElementById('display');
-                    displayDiv.style.height = displayDiv.scrollHeight + 'px';
-                }
+                imeFazeDiv.appendChild(phaseDiv);
             });
+        } else {
+            imeFazeDiv.style.display = 'none';
         }
+    }
+
+    refreshPhases();
+});
+
+       
     </script>
 </body>
 </html>

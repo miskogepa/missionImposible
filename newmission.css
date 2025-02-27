@@ -247,3 +247,29 @@ body {
     text-align: center;
     font-size: 20px;
 }
+
+
+#ime-faze-mesto {
+    margin-top: 15px;
+    min-height: 50px; /* Minimum prostora za faze */
+}
+
+
+#napravi-fazu-div {
+    position: sticky;
+    bottom: 20px;
+    z-index: 10;
+    /* background: #1a1e16;  */
+    padding-top: 20px;
+}
+
+#ime-faze {
+    max-height: 300px; /* Maksimalna visina pre skrolovanja */
+    overflow-y: auto;
+    margin-bottom: 15px;
+}
+
+phase-item {
+    margin: 8px 0;
+    padding: 8px 15px;
+}
