@@ -297,4 +297,26 @@ body {
     
 }
 
+#creeate-phase-div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+#create-phase-btn{
+    background-color: #ff6b35;
+    border: 2px solid #ff6b35;
+    border-radius: 0.9em;
+    cursor: pointer;
+    font-size: 20px;
+    height: 35px;
+    width: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #5c6b73;
+    font-family: 'Staatliches', sans-serif;
+    margin-bottom: 20px;
+}
 
