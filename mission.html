@@ -73,8 +73,16 @@
                 const missionDiv = document.createElement('div');
                 missionDiv.textContent = missionName;
                 missionDiv.className = 'mission-item';
+                
+                // Create Deploy button
+                const deployButton = document.createElement('button');
+                deployButton.textContent = 'Deploy';
+                deployButton.className = 'deploy-btn';
+                missionDiv.appendChild(deployButton);
+
                 displayDiv.appendChild(missionDiv);
             });
+            // localStorage.clear();
         });
     </script>
   
