@@ -66,7 +66,7 @@
     <script src="newmission.js"></script>
     <script>
         document.getElementById('add-phase').addEventListener('click', function() {
-            window.location.href = 'addphase.html';
+            window.location.href = 'newphase.html';
         });
 
         document.getElementById('mission-form').addEventListener('submit', function(event) {
@@ -106,12 +106,14 @@
                     deleteBtn.className = 'delete-btn';
                     deleteBtn.addEventListener('click', function() {
                         phaseDiv.remove();
+                        // Remove phase from localStorage
+                        const updatedPhases = phases.filter(p => p !== phaseName);
+                        localStorage.setItem('phases', JSON.stringify(updatedPhases));
                     });
 
                     phaseDiv.appendChild(deleteBtn);
                     imeFazeDiv.appendChild(phaseDiv);
                 });
-                localStorage.removeItem('phases'); // Clear phases from local storage
             }
         });
 
