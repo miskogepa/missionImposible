@@ -77,6 +77,14 @@
     </div>
     <script src="index.js"></script>
     <!-- <script src="newphase.js"></script> -->
+    <script>
+        document.getElementById('create-phase-btn').addEventListener('click', function(event) {
+            event.preventDefault();
+            const phaseName = document.getElementById('phase-name').value;
+            localStorage.setItem('phaseName', phaseName);
+            window.location.href = 'newmission.html';
+        });
+    </script>
 </body>
 
 </html>

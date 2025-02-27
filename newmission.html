@@ -93,6 +93,15 @@
             localStorage.setItem('missionName', missionName);
             window.location.href = 'mission.html';
         });
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const phaseName = localStorage.getItem('phaseName');
+            if (phaseName) {
+                const phaseDiv = document.createElement('div');
+                phaseDiv.textContent = phaseName;
+                document.getElementById('ime-faze').appendChild(phaseDiv);
+            }
+        });
     </script>
 </body>
 </html>
