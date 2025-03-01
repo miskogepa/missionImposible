@@ -1,3 +1,25 @@
+import { db } from './firebase-config.js';
+import { collection, addDoc, getDocs } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore.js";
+
+// Import the functions you need from the SDKs you need
+import { initializeApp } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-app.js";
+import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-analytics.js";
+
+// Your web app's Firebase configuration
+const firebaseConfig = {
+    apiKey: "AIzaSyBugtCcIElznEhmCZiPLOzKsO6akYNXiuE",
+    authDomain: "missionimposible-a4a03.firebaseapp.com",
+    projectId: "missionimposible-a4a03",
+    storageBucket: "missionimposible-a4a03.firebasestorage.app",
+    messagingSenderId: "415833627058",
+    appId: "1:415833627058:web:9184d66b3792dd24fdacab",
+    measurementId: "G-E3JYHN4N5M"
+};
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+const analytics = getAnalytics(app);
+
 document.addEventListener('DOMContentLoaded', function() {
     const homeBtn = document.getElementById('home-btn');
     const newMissionBtn = document.getElementById('new-mission-btn');
@@ -33,9 +55,6 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     if (newMissionBtn) {
-        newMissionBtn.addEventListener('click', function() {
-            window.location.href = 'newmission.html';
-        });
     }
 
     if (missionBtn) {

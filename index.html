@@ -42,6 +42,28 @@
     </div>
 
     <script src="index.js"></script>
+    <script type="module">
+      // Import the functions you need from the SDKs you need
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-app.js";
+      import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-analytics.js";
+      // TODO: Add SDKs for Firebase products that you want to use
+      // https://firebase.google.com/docs/web/setup#available-libraries
+    
+      // Your web app's Firebase configuration
+      const firebaseConfig = {
+        apiKey: "AIzaSyBugtCcIElznEhmCZiPLOzKsO6akYNXiuE",
+        authDomain: "missionimposible-a4a03.firebaseapp.com",
+        projectId: "missionimposible-a4a03",
+        storageBucket: "missionimposible-a4a03.firebasestorage.app",
+        messagingSenderId: "415833627058",
+        appId: "1:415833627058:web:9184d66b3792dd24fdacab",
+        measurementId: "G-E3JYHN4N5M"
+      };
+    
+      // Initialize Firebase
+      const app = initializeApp(firebaseConfig);
+      const analytics = getAnalytics(app);
+    </script>
     
 </body>
 
